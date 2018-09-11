@@ -2,48 +2,36 @@
 
 class Pokemon
 {
+	public static $Counter = 0;
+
 	public $Name;
     public $EnergyType;
-    public $Hitpoints;
     public $Health;
-    public $Attacks[];
+    public $Attacks;
     public $Weakness;
     public $Resisitence;
 
-	function __construct($Name,$EnergyType,$Hitpoints,$Health,$Attacks,$Weakness,$Resisitence)
+	function __construct($name,$hp,$EnergyType)
 	{
-	 $this->Name =$Name;
-	 $this->EnergyType = $EnergyType;
-	 $this->Hitpoints = $Hitpoints;
-	 $this->Health = $Health;
-	 $this->Attacks = $Attacks;
-	 $this->Weakness = $Weakness;
-     $this->Resisitence = $Resisitence
+	  self::$Counter = self::$Counter + 1;
+
+	  $this->Name =$name;
+	  $this->EnergyType = $EnergyType;
+	  $this->Health = $hp;
+	  $this->Attacks[];
+
 	}
-   
-   // public function Tackle($Damage,$EnergyType,$Hitpoints,$Weakness, $Resisitence){
-    
-   // }
+    public function DealDamage($EnergyType,$Damage)
+    {
+       $CalcDamage = $Damage - $this->EnergyType;
 
-}
-
-
-
-class Pikachu extends Pokemon
-{
-	public $Name = "pikachu";
-	public $EnergyType = "lightning"
-	public $Hitpoints = 60;
-	public $Health = 60;
-	public $Attacks = ;  // Electric ring 50 , Pika Punch 20
-	public $Weakness = "fire";
-	public $Resisitence = ;// fighting res: 20
+      if ( ) {
+      	# code...
+      }
 
 
-	function __construct(argument)
-	{
-		# code...
-	}
+    }
+
 }
 
 ?>
