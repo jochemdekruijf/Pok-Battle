@@ -1,0 +1,19 @@
+body{
+ background-image:url('img/background.jpg');
+ background-size:cover;
+ background-color:#3399ff;
+}
+#pikachu{
+ height:150px;
+ position:absolute;
+ right:55px;
+ top: 20px;
+}
+#charmeleon{
+ height:200px;
+ position:absolute;
+ left:175px;
+ bottom: 20px;
+}
+
+
