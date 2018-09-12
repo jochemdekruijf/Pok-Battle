@@ -1,12 +1,42 @@
 <link rel="stylesheet" type="text/css" href="pokemon.css">
-<img id="pikachu" src="img/pikachu.gif" alt="pokemon1">
-<img id="charmeleon" src="img/charmeleon.gif" alt="pokemon2">
+<!-- <img id="pikachu" src="img/pikachu.gif" alt="pokemon1">
+<img id="charmeleon" src="img/charmeleon.gif" alt="pokemon2"> -->
 <?php
-include('pokemon.php');
-include('attack.php');
-//Name,$EnergyType,$Hitpoints,$Health,$Attacks,$Weakness,$Resisitence
 
-$pikachu = new pokemon("pikachu","ligtning",60,60,["Electric ring", 50], ["Pika Punch", 20], "fire", ["fighting", 20]);
-$Charmelion = new pokemon("charmeleon","fire",60,60,["Head Butt", 10], ["flare", 30], "water", ["lightning", 10]);
+require 'Pokemon.php';
+require 'Attack.php';
+require 'Weakness.php';
+require 'Resistance.php';
+
+prettyPrint(Pokemon::$Counter);
+$g = new Pokemon("Pikachu", 60, "Lightning");
+$g->Weakness = new Weakness("Fire", 1.5);
+$g->Resistance = new Resistance("Fighting", 20);
+$g->Attacks[] = new Attack("Electric Ring", 50);
+$g->Attacks[] = new Attack("Pika Punch", 20);
+
+prettyPrint($g);
+
+$t = new Pokemon("Charmeleon", 60, "Fire");
+$t->Weakness = new Weakness("Water", 2);
+$t->Resistance = new Resistance("Lightning", 10);
+$t->Attacks[] = new Attack("Head Butt", 10);
+$t->Attacks[] = new Attack("Flare", 30);
+
+prettyPrint($t);
+
+foreach($g->Attacks as $attack) {
+    prettyPrint("Execute attack " . $attack->Name . ' on ' . $t->Name);
+    $attack->Execute($t);
+}
+
+prettyPrint($t);
+function prettyPrint($var) {
+    echo '<pre>';
+    print_r($var);
+    echo '</pre>';
+}
+
+
 
 
